@@ -1,0 +1,93 @@
+/* styles.css — mobile-first */
+:root{
+  --brand: #0d6efd;
+  --brand-600: #0b5ed7;
+  --muted: #6c757d;
+  --bg: #ffffff;
+  --surface: #f8fafc;
+  --max-width: 1100px;
+  --radius: .5rem;
+  --focus-shadow: 3px solid rgba(13,110,253,.25);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  line-height:1.45;
+  color:#212529;
+  background:var(--bg);
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+/* spacing for fixed navbar */
+.mt-navbar{padding-top:5.25rem}
+@media(min-width:768px){.mt-navbar{padding-top:6rem}}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,#f7fbff,white);border-radius:6px}
+
+/* Accessibility helpers */
+.visually-hidden-focusable{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.visually-hidden-focusable:focus{position:static;width:auto;height:auto;padding:.5rem;margin:.5rem}
+
+/* Buttons & cards */
+.btn{border-radius:var(--radius)}
+.card img{height:160px;object-fit:cover}
+
+/* Footer */
+footer{font-size:.9rem}
+
+/* Back-to-top */
+.back-to-top{
+  position:fixed;right:1rem;bottom:1rem;padding:.5rem .7rem;border-radius:.5rem;border:none;background:var(--brand-600);color:white;cursor:pointer;display:none;z-index:1040
+}
+.back-to-top:focus{outline:var(--focus-shadow);outline-offset:2px}
+
+/* Focus states */
+:focus{outline:var(--focus-shadow);outline-offset:2px}
+a:focus{outline-offset:3px}
+
+/* Forms */
+.form-control:focus{box-shadow:0 0 0 .15rem rgba(13,110,253,.1)}
+.invalid-feedback{display:block}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.75);z-index:1050;padding:1rem
+}
+.lightbox[aria-hidden="false"]{display:flex}
+.lightbox-img{max-width:90%;max-height:80%;border-radius:6px}
+.lightbox-close{position:absolute;right:1rem;top:1rem;background:transparent;border:2px solid white;color:white;padding:.2rem .5rem;border-radius:6px}
+
+/* Image thumbnails as buttons */
+.img-thumb{background:transparent;border:none;padding:0}
+.img-thumb img{transition:transform .18s ease, box-shadow .18s ease}
+.img-thumb:focus img, .img-thumb:hover img{transform:scale(1.03);box-shadow:0 6px 18px rgba(0,0,0,.12)}
+
+/* Typography and rhythm */
+h1,h2,h3{line-height:1.15;margin-top:0;margin-bottom:.6rem}
+p.lead{font-size:1.05rem;color:var(--muted)}
+
+/* Utility helpers */
+.container{max-width:var(--max-width)}
+
+/* Responsive tweaks */
+@media(min-width:768px){
+  .card img{height:180px}
+}
+
+/* Print-friendly adjustments */
+@media print{
+  .navbar, .back-to-top, .lightbox{display:none}
+  body{color:#000;background:#fff}
+}
+
+/* small accessible visible states for required fields */
+[aria-required="true"]::after{content:"*";color:#d33;margin-left:.25rem}
+
+/* Minor color contrast improvements for .btn-outline-light on dark backgrounds */
+.btn-outline-light{border-color:rgba(255,255,255,.85);color:rgba(255,255,255,.95)}
+
+/* Ensure no horizontal scroll on common breakpoints */
+html,body{overflow-x:hidden}

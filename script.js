@@ -1,7 +1,7 @@
 // script.js
 
 document.addEventListener("DOMContentLoaded", function() {
-
+  
   // ---------------------------
   // Back to top button
   // ---------------------------
@@ -23,13 +23,23 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // ---------------------------
-  // FAQ toggle (готово для future use)
+  // FAQ toggle (готово к будущим элементам)
   // ---------------------------
   const faqToggles = document.querySelectorAll(".faq-question");
   faqToggles.forEach(q => {
     q.addEventListener("click", function() {
       const answer = this.nextElementSibling;
       answer.style.display = (answer.style.display === "block") ? "none" : "block";
+    });
+  });
+
+  // ---------------------------
+  // Optional: simple student-life expandable cards
+  // ---------------------------
+  const studentCards = document.querySelectorAll(".card-text");
+  studentCards.forEach(card => {
+    card.addEventListener("click", function() {
+      this.classList.toggle("expanded");
     });
   });
 
